@@ -5,17 +5,8 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs'
 
-buildscript {
-    repositories {
-        jcenter()
-    }
-
-    dependencies {
-        classpath 'com.appdynamics:appdynamics-gradle-plugin:20.7.0'
-    }
-}
-
 android {
+namespace "com.example.appcircle_sample_android"
     compileSdkVersion 31
     buildToolsVersion "30.0.3"
     defaultConfig {
@@ -75,7 +66,7 @@ repositories {
     maven { url "https://jitpack.io" }
     // maven { url 'https://maven.fabric.io/public' }
     maven {
-        url '/Users/megu/Documents/Android/appcircle-fab-sample-flutter/flutter_module/build/host/outputs/repo'
+        url './flutter_module/build/host/outputs/repo'
         // This is relative to the location of the build.gradle file
         // if using a relative path.
     }
@@ -83,7 +74,11 @@ repositories {
         url 'https://storage.googleapis.com/download.flutter.io'
     }
 }
-
+configurations.all {
+   exclude group:"org.jetbrains.kotlin", module: "kotlin-stdlib-jdk7"
+   exclude group:"org.jetbrains.kotlin", module: "kotlin-stdlib-jdk8"
+   
+}
 dependencies {
 
     debugImplementation 'io.appcircle.dashboard.flutter_module:flutter_debug:1.0'
