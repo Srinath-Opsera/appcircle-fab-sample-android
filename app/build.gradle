@@ -65,13 +65,12 @@ repositories {
     }
     maven { url "https://jitpack.io" }
     // maven { url 'https://maven.fabric.io/public' }
-    maven {
-        url '../flutter_module/build/host/outputs/repo'
-        // This is relative to the location of the build.gradle file
-        // if using a relative path.
-    }
+    
     maven {
         url 'https://storage.googleapis.com/download.flutter.io'
+    }
+    maven{
+        url 'https://nexus-fayfivle.playground.opsera.io/repository/maven-releases/'
     }
 }
 configurations.all {
